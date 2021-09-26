@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export PHPVER=7.4
+
+$ apt-get install -y php${PHPVER}-fpm php${PHPVER}-cli php${PHPVER}-xml php${PHPVER}-enchant php${PHPVER}-mbstring
+$ apt-get install -y aspell-en aspell-am aspell-ar aspell-ar aspell-bg aspell-br aspell-ca aspell-cs aspell-cy aspell-da aspell-de aspell-el aspell-eo aspell-es aspell-et aspell-eu aspell-fa aspell-fr aspell-ga aspell-he aspell-hr aspell-hu aspell-hy aspell-is aspell-it aspell-ku aspell-lt aspell-lv aspell-nl aspell-pl aspell-pt aspell-ro aspell-ru aspell-sk aspell-sl aspell-sv aspell-tl aspell-uk aspell-uz

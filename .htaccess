@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^tbproxy/spell index.php
