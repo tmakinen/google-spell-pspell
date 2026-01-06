@@ -45,7 +45,7 @@ $ docker run --rm -p 8080:80 google-spell-pspell
 and test API using `curl`:
 
 ```
-$ curl -H "Content-Type: text/xml" -X POST -d '<?xml version="1.0" encoding="utf-8" ?><spellrequest><text>This is tst</text></spellrequest>' "http://127.0.0.1:8080/tbproxy/spell?lang=en"
+$ curl -H "Content-Type: text/xml" -X POST -d '<?xml version="1.0" encoding="utf-8" ?><spellrequest><text>Ths is tst</text></spellrequest>' "http://127.0.0.1:8080/tbproxy/spell?lang=en"
 ```
 
 ## Bugs/Suggestions

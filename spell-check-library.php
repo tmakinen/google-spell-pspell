@@ -603,7 +603,7 @@ class EnchantSpellChecker extends GenericSpellChecker {
 	function checkSpelling() {
 		$text = strip_tags($this->_html);
 		$text = mb_ereg_replace("[~&\"#{(\[_\\^@)\]=+,.;/:!%*[:space:][:blank:]]"," ", $text);
-		$words = preg_split('/\s/', $text, null, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_OFFSET_CAPTURE);
+		$words = preg_split('/\s/', $text, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_OFFSET_CAPTURE);
 		$off = 0;
 		foreach($words as $w) {
 			$word = trim($w[0]);
