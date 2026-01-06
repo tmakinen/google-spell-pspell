@@ -1,64 +1,22 @@
-FROM php:7.4-apache-buster
+FROM php:8.3.29-apache
 
-LABEL maintainer="Thomas Bruederli <thomas@roundcube.net>"
-
-RUN set -ex; \
-  apt-get update; \
-  apt-get install -y --no-install-recommends \
-    aspell-am \
-    aspell-ar \
-    aspell-ar \
-    aspell-bg \
-    aspell-br \
-    aspell-ca \
-    aspell-cs \
-    aspell-cy \
-    aspell-da \
-    aspell-de \
-    aspell-el \
-    aspell-en \
-    aspell-eo \
-    aspell-es \
-    aspell-et \
-    aspell-eu \
-    aspell-fa \
-    aspell-fr \
-    aspell-ga \
-    aspell-he \
-    aspell-hr \
-    aspell-hu \
-    aspell-hy \
-    aspell-is \
-    aspell-it \
-    aspell-ku \
-    aspell-lt \
-    aspell-lv \
-    aspell-nl \
-    aspell-pl \
-    aspell-pt \
-    aspell-ro \
-    aspell-ru \
-    aspell-sk \
-    aspell-sl \
-    aspell-sv \
-    aspell-tl \
-    aspell-uk \
-    aspell-uz \
-  ;
-
-RUN set -ex; \
-  apt-get install -y --no-install-recommends \
-    libpspell-dev \
-    libonig-dev \
+RUN set -eux ; \
+    apt-get update ; \
+    apt-get -y install --no-install-recommends \
+        aspell-\* \
+        libonig-dev \
+        libpspell-dev \
     ; \
-  docker-php-ext-install \
-    pspell \
-    mbstring \
-  ;
+    rm -rf /var/lib/apt/lists/*
 
-RUN a2enmod rewrite
+RUN set -eux ; \
+    docker-php-ext-install \
+        mbstring \
+        pspell
 
-COPY *.php .
-COPY .htaccess .
+RUN set -eux ; \
+    a2enmod rewrite
+
+COPY --chmod=0644 *.php .htaccess .
 
 CMD ["apache2-foreground"]
