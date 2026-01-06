@@ -573,6 +573,7 @@ class EnchantSpellChecker extends GenericSpellChecker {
 
 	var $_dictionary;
 	var $_broker;
+	var $_err;
 
 	//{{{ public function __construct($text, &$options)
 	/**

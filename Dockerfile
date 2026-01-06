@@ -1,18 +1,18 @@
-FROM php:8.3.29-apache
+FROM php:8.5.1-apache
 
 RUN set -eux ; \
     apt-get update ; \
     apt-get -y install --no-install-recommends \
         aspell-\* \
+        libenchant-2-dev \
         libonig-dev \
-        libpspell-dev \
     ; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux ; \
     docker-php-ext-install \
-        mbstring \
-        pspell
+        enchant \
+        mbstring
 
 RUN set -eux ; \
     a2enmod rewrite
