@@ -1,4 +1,4 @@
-FROM php:8.5.10-apache
+FROM php:8.6.0beta2-apache
 
 RUN set -eux ; \
     apt-get update ; \
